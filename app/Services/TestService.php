@@ -4,8 +4,10 @@ namespace App\Services;
 
 class TestService
 {
+    public function __construct(private ValueService $valueService) {}
+    
     public function getTotal(int $val): int
     {
-        return $val + 10;
+        return $val + $this->valueService->getValue();
     }
 }
